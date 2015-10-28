@@ -11,7 +11,7 @@ public class StrStr {
 
     public static void main(String []args)
     {
-        int index = (new StrStr()).strStr("aaa","aaa");
+        int index = (new StrStr()).strStr("babaaa","aaa");
         System.out.println(index);
     }
 
@@ -30,6 +30,7 @@ public class StrStr {
 
         for(int i=0;i<haystack.length();i++)
         {
+            System.out.println(i);
             if(haystack.charAt(i) == needle.charAt(0))
             {
                 start = i;
@@ -43,7 +44,9 @@ public class StrStr {
                 {
                     flag = true;
                     ans =start;
+                    break;
                 }
+
             }
 
         }
