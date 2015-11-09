@@ -1,4 +1,3 @@
-package leetcode;
 
 /**
  * Created with IntelliJ IDEA.
@@ -17,9 +16,7 @@ public class ReverseList {
             temp.next = new ListNode(i);
             temp = temp.next;
         }
-        ListNode.printNodes(root);
         root = (new ReverseList()).reverseList(root);
-        ListNode.printNodes(root);
 
     }
 
@@ -31,7 +28,7 @@ public class ReverseList {
         if(head == null)
             return head;
 
-
+        while(temp1 != null)
         {
 
             temp2 = temp1.next;
