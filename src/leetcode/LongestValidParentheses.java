@@ -1,4 +1,3 @@
-package leetcode;
 
 import java.util.Stack;
 
@@ -12,7 +11,7 @@ import java.util.Stack;
 public class LongestValidParentheses {
     public static void main(String []args)
     {
-        int ans  = (new LongestValidParentheses()).longestValidParentheses("(()(()(((())(((((()()))((((()()(()()())())())()))()()()())(())()()(((()))))()((()))(((())()((()()())((())))(())))())((()())()()((()((())))))((()(((((()((()))(()()(())))((()))()))())");
+        int ans  = (new LongestValidParentheses()).longestValidParentheses(")(()(()(((())(((((()()))((((()()(()()())())())()))()()()())(())()()(((()))))()((()))(((())()((()()())((())))(())))())((()())()()((()((())))))((()(((((()((()))(()()(())))((()))()))())");
         System.out.println(ans);
     }
     public int longestValidParentheses(String s) {
@@ -24,23 +23,19 @@ public class LongestValidParentheses {
                 stack.push(i);
             else
             {
-                if(stack.isEmpty())
+                if(!stack.isEmpty()) {
+                    ans[stack.pop()] = 1;
                     ans[i] = 1;
-                else
-                {
-                    stack.pop();
                 }
             }
         }
-        while(!stack.empty())
-            ans[stack.pop()] = 1;
         int localMax =0,gloabalMax =0;
         for (Integer integer : ans) {
-            if(integer == 0)
+            if(integer == 1)
                 localMax++;
-            else if(integer ==1 && gloabalMax < localMax)
+            else if(integer == 0 )
             {
-                gloabalMax = localMax;
+                gloabalMax = Math.max(localMax,gloabalMax);
                 localMax = 0;
             }
 
@@ -48,8 +43,6 @@ public class LongestValidParentheses {
         if(localMax > gloabalMax)
             gloabalMax = localMax;
         return gloabalMax;
-
-
 
     }
 
